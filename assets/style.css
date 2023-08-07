@@ -1,0 +1,72 @@
+:root {
+    --fontBrand: 'Work Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: url(./img/MeteoRod_BG.png) no-repeat center center fixed; 
+    background-size: cover;
+    background-color: black;
+}
+
+.font-brand {
+    font-family: var(--fontBrand);
+}
+
+#earth {
+    background-image: url(./img/MeteoRod_Earth.png);
+    background-size: cover;
+    background-position: top;
+    position: absolute;
+    bottom: 0;
+    transition: .3s;
+    transition-timing-function: ease-in-out;
+}
+
+.earth-full {
+    height: 55vh;
+}
+
+.earth-contracted {
+    height: 30vh;
+}
+
+#cardBox {
+    scroll-behavior: smooth;
+}
+
+.aspect-card {
+    aspect-ratio: 1 / 1.8;
+}
+
+.h-card {
+    height: 515px;
+}
+
+.transition-3 {
+    transition: .3s;
+}
+
+.transition-6 {
+    transition: .6s;
+}
+
+.transition-10 {
+    transition: 1s;
+}
+
+.h-1\/12 {
+    height: 10%;
+}
+
+.h-11\/12 {
+    height: 90%;
+}
+
+.w-11\/12 {
+    width: 90%;
+}
+
+.m-1\/60 {
+    margin: 0 1.666666%;
+}
