@@ -296,7 +296,7 @@ const setLocFunc = () => {
 
     const latitude = selectedLoc.dataset.lat;
     const longitude = selectedLoc.dataset.lon;
-    const getLocation = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    const getLocation = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
     fetch(getLocation)
         .then((res) => {
