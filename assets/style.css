@@ -29,7 +29,7 @@ body {
 
 @media not all and (min-width: 768px) {
     .earth-mobile {
-        height: 53vh;
+        height: 50vh;
     }
 
     .aspect-card {
@@ -60,6 +60,10 @@ body {
 }
 
 #locDiv:hover {
+    cursor: pointer;
+}
+
+.pointerLink {
     cursor: pointer;
 }
 
