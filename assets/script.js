@@ -407,6 +407,9 @@ const getWeathFunc = () => {
             weatherArray = data; // The fetched data is saved into the global variable weatherArray to be managed easily by various functions. 
             selectedLoc2.innerHTML = data.city.name; // To set the inner text from the second line location at the top right screen.
         })
+        .then(() => {
+            setDate();
+        })
         .catch(error => console.log("error weather"));
 };
 
@@ -493,7 +496,7 @@ const locatedFalse = () => {
 const setDate = () => {
     const dayMsecs = 86400000; // The number of milliseconds in a day (1000x60x60x24).
 
-    if (dayjs().format("HH") > 20) { // If the actual time is over 20 hours, the broadcast starts the next day (tomorrow).
+    if (dayjs().format("YYYY-MM-DD") < dayjs.unix(weatherArray.list[0].dt).format("YYYY-MM-DD")) { // If the actual time is over 20 hours, the broadcast starts the next day (tomorrow).
         for (i = 0; i < dayId.length; i++) {
             dayId[i].dataset.date = dayjs(dayjs() + dayMsecs + (dayMsecs * i)).format('DD-MM-YYYY'); // Today plus 1 day in milliseconds. Each loop adds a day extra in milliseconds.
             
@@ -537,7 +540,6 @@ const setOpacities = () => {
 const readyFunc = () => {
     navigator.geolocation.getCurrentPosition(located, locatedFalse);
     setOpacities();
-    setDate();
     getCitiesHistory();
 };
 
