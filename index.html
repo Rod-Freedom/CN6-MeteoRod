@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="./assets/img/MV_favi.png">
         <link rel="stylesheet" href="./assets/style.css">
         <title>MeteoVision</title>
     </head>
@@ -41,8 +42,10 @@
         <section id="newLocBox" class="absolute hidden flex-col font-brand justify-center py-4 px-8 rounded-xl z-50 top-1/3 items-center bg-slate-800/80 backdrop-blur-md m-4 w-96 max-sm:w-11/12 text-white">
             <i class="fa-sharp fa-regular fa-magnifying-glass-location flex justify-center text-4xl"></i>
             <h1 class="text-center font-brand text-2xl font-light mb-3">Look for your city!</h1>
-            <input class="bg-slate-900/70 rounded-md text-lg px-2 border-slate-900/70 border-2 focus:border-purple-500 w-full" type="text" id="city" name="city" required minlength="1" maxlength="20"/>
-            <div id="autoComp" class="hidden flex-col w-5/6 absolute bg-slate-800/95 rounded-md p-1"></div>
+            <div id="inputDiv" class="w-full">
+                <input class="bg-slate-900/70 rounded-md text-lg px-2 border-slate-900/70 border-2 focus:border-purple-500 w-full" type="text" id="city" name="city" required minlength="1" maxlength="20"/>
+                <div id="autoComp" class="hidden flex-col w-5/6 absolute bg-slate-800/95 rounded-md p-1"></div>
+            </div>
             <div id="cityHistory" class="flex flex-wrap w-full h-fit pt-4 justify-start gap-1"></div>
             <button id="btnClose" class="bg-white/50 px-7 py-1 rounded-lg mt-5 border-2 border-white/70 hover:bg-white/30">CLOSE</button>
         </section>
@@ -55,51 +58,37 @@
             </div>
 
             <section id="daySelectorBox" class="w-full flex-nowrap justify-center items-center hidden opacity-0 transition-10">
-                <i id="arrow" class="flex justify-end w-9 max-md:text-lg text-2xl fa-solid fa-backward text-white/50 hover:text-white hover:scale-110 transition-3" data-arrow="left"></i>
-                <div id="daySelector" class="w-4/6  md:w-1/2 flex flex-nowrap justify-start overflow-hidden max-w-days mx-2">
+                <i id="arrow" class="pointerLink flex justify-center w-9 max-md:text-lg text-2xl fa-solid fa-backward text-white/50 hover:text-white hover:scale-110 transition-3" data-arrow="left"></i>
+                <div id="daySelector" class="w-4/6  md:w-1/2 flex flex-nowrap justify-start overflow-hidden max-w-days">
                     <div id="blank" class="w-blank flex-none"></div>
-                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl mx-2 text-center text-white" data-date="" data-day=""></a>
-                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl mx-2 text-center text-white" data-date="" data-day=""></a>
-                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl mx-2 text-center text-white" data-date="" data-day=""></a>
-                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl mx-2 text-center text-white" data-date="" data-day=""></a>
-                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl mx-2 text-center text-white" data-date="" data-day=""></a>
+                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl text-center text-white" data-date="" data-day=""></a>
+                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl text-center text-white" data-date="" data-day=""></a>
+                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl text-center text-white" data-date="" data-day=""></a>
+                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl text-center text-white" data-date="" data-day=""></a>
+                    <a id="day" class="transition-3 font-brand font-light w-48 max-md:w-40 flex-none max-md:text-xl max-lg:text-2xl text-3xl text-center text-white" data-date="" data-day=""></a>
                     <div id="blank" class="w-blank flex-none"></div>
                 </div>
-                <i id="arrow" class="flex justify-start w-9 max-md:text-lg text-2xl fa-solid fa-forward text-white/50 hover:text-white hover:scale-110 transition-3" data-arrow="right"></i>
+                <i id="arrow" class="pointerLink flex justify-center w-9 max-md:text-lg text-2xl fa-solid fa-forward text-white/50 hover:text-white hover:scale-110 transition-3" data-arrow="right"></i>
             </section>
 
-            <section id="cardBoxCont" class="flex-nowrap justify-center items-center z-40 h-fit w-11/12 opacity-0 transition-10 max-md:relative hidden">
-                <i id="btnScrollCard" class="justify-center w-fit p-1 text-5xl fa-sharp fa-solid fa-circle-left text-white/50 hover:text-white max-md:absolute max-md:left-20 z-40 hidden" data-arrow="left"></i>
+            <section id="cardBoxCont" class="flex-nowrap justify-center items-center z-40 h-fit w-fit opacity-0 transition-10 max-md:relative hidden">
+                <i id="btnScrollCard" class="pointerLink justify-center w-fit p-1 text-5xl fa-sharp fa-solid fa-circle-left text-white/50 hover:text-white max-md:absolute max-md:left-20 z-40 hidden" data-arrow="left"></i>
                 <div id="blank-card" class="flex-1"></div>
-                <div id="cardBox" class="flex flex-nowrap md:w-fit max-md:w-card justify-start items-center overflow-hidden md:mx-3">
-                    <!-- <div id="weatherCard" class="flex-none aspect-card max-md:my-2 max-md:mx-5 m-10 w-72 flex flex-col justify-between p-4 items-center bg-black/50 rounded-2xl border-4 drop-shadow-xl backdrop-blur-md" style="background: url(./assets/img/clouds.gif) no-repeat; background-size: cover;">
-                        <div id="topSq" class="flex flex-col items-center justify-center w-full p-4 rounded-xl bg-slate-500/50 text-center">
-                            <h3 class="font-brand font-thin max-md:text-sm text-base mb-4">today<br><span class="max-md:text-xl text-2xl font-normal">15:00</span></h3>
-                            <h1 class="font-brand font-semibold max-md:text-6xl text-7xl">&nbsp;24<span class="font-thin">°</span></h1>
-                            <h4 class="font-brand font-thin text-xl">heavy intensity shower rain</h4>
-                            <span class="w-16 h-16 bg-cover" style="background-image: url(https://openweathermap.org/img/wn/04d@2x.png);"></span>
-                        </div>
-    
-                        <div id="bttmSq" class="flex flex-col w-full items-center justify-center p-4 rounded-xl bg-slate-500/50 text-center"> 
-                            <h4 class="font-brand font-thin text-lg mb-2"><i class="fa-light fa-wind text-white"></i>&nbsp;Wind speed:<br><span>12.3km/h</span></h4>
-                            <h4 class="font-brand font-thin text-lg"><i class="fa-sharp fa-light fa-droplet-percent text-white"></i>&nbsp;Humidity:<br><span>42%</span></h4>
-                        </div>
-                    </div> -->
-                </div>
+                <div id="cardBox" class="flex flex-nowrap md:w-fit w-cards justify-start items-center overflow-hidden md:mx-3"></div>
                 <div id="blank-card" class="flex-1"></div>
-                <i id="btnScrollCard" class="justify-center w-fit p-1 text-5xl fa-sharp fa-solid fa-circle-right text-white/50 hover:text-white max-md:absolute max-md:right-20 z-40 hidden" data-arrow="right"></i>
+                <i id="btnScrollCard" class="pointerLink justify-center w-fit p-1 text-5xl fa-sharp fa-solid fa-circle-right text-white/50 hover:text-white max-md:absolute max-md:right-20 z-40 hidden" data-arrow="right"></i>
             </section>
+            
             <div id="blank-card" class="flex-1"></div>
-
 
             <section id="earth" class="w-full earth-full z-10 earth-mobile" id="earth" data-position="full"></section>
         </main>
 
         <footer class="relative flex justify-center bottom-0 bg-white/50 z-30 w-full">
-            <h1 class="text-center text-black font-brand font-semibold">Rod-Freedom</h1>
+            <h1 class="text-center text-black font-brand font-bold">GitHub /&nbsp;</h1>
+            <a href="https://github.com/Rod-Freedom/CN6-MeteoRod" class="text-center text-black font-brand font-bold hover:underline hover:text-black/50">Rod-Freedom</a>
         </footer>
 
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     </body>
 </html>
