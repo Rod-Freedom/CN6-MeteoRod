@@ -50,11 +50,11 @@ As you load the website, you'll get to the landing page. Be sure to activate you
 
 
 ## Get Started
-[Click here](https://rod-freedom.github.io/CN6-MeteoRod/), and get in love with MeteoVision!
+[Click here](https://rod-freedom.github.io/CN6-MeteoVision/), and get in love with MeteoVision!
 
 ## License
 
-This project is under an [MIT License](https://github.com/Rod-Freedom/CN6-MeteoRod/blob/main/LICENSE). See the LICENSE file for more details.
+This project is under an [MIT License](https://github.com/Rod-Freedom/CN6-MeteoVision/blob/main/LICENSE). See the LICENSE file for more details.
 ## Credits
 
 All the code was created from scratch by [Rod's Freedom.](https://github.com/Rod-Freedom)
